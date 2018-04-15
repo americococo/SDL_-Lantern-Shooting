@@ -2,8 +2,11 @@
 
 #include "GameObject.h"
 
+#include "RotationBulletPattern.h"
+#include "ChaseBulletPattern.h"
+
 #include "Bullet.h"
-#include "RotationBullet.h"
+#include "RotationBullet.h"//삭제 예정
 #include "ChaseBullet.h"
 #include "aimingBullet.h"
 
@@ -13,7 +16,7 @@
 #include "BulletManger.h"
 #include "GameObjectManger.h"
 
-#include <map>
+
 Enemy::Enemy()
 {
 
@@ -27,13 +30,24 @@ void Enemy::Init(const char * name)
 	GameObject::Init(name);
 	_ObjectId = 10;
 
-	_AttackCoolTime = 1000 / 10 * 3;
-	_DuractionTime = 0;
 	_hp = 100;
 
-	angleright = true;
+
 
 	_objectType = eObjectType::Monster;
+
+	{
+		BulletPattern * pattern = new RotationBulletPattern();
+		pattern->Init(this);
+		_bulletPatternList[eBulletPattern::ROTATION] = pattern;
+	}
+	{
+		BulletPattern * pattern = new ChaseBulletPattern();
+		pattern->Init(this);
+		_bulletPatternList[eBulletPattern::CHASE] = pattern;
+	}
+
+	_pattern = _bulletPatternList[eBulletPattern::ROTATION];
 }
 void Enemy::DeInit()
 {
@@ -52,76 +66,15 @@ void Enemy::Update(int deltaTime)
 		return;
 	GameObject::Update(deltaTime);
 
-	_DuractionTime += deltaTime;
 
-
-
-	if (_AttackCoolTime <= _DuractionTime)
 	{
-		_DuractionTime = 0;
+		_pattern->Update(deltaTime);
 		this->Attack();
 	}
 }
 
 void Enemy::Attack()
 {
-	//if (true == angleright)
-	//{
-	//	for (int i = 0; i <= 360; i += 30)
-	//	{
-
-	//		RotationBullet * bullet = new RotationBullet();
-
-	//		int EnterBulletX = _x;
-	//		int EnterBulletY = _y;
-	//		bullet->Init("Bullet.csv");
-
-	//		bullet->SetAngle(i);
-	//		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-
-	//		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
-	//	}
-	//}
-	//if (false == angleright)
-	//{
-	//	for (int i = 15; i <= 375; i += 30)
-	//	{
-	//		RotationBullet * bullet = new RotationBullet();
-
-	//		int EnterBulletX = _x;
-	//		int EnterBulletY = _y;
-	//		bullet->Init("Bullet.csv");
-
-	//		bullet->SetAngle(i);
-	//		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-
-	//		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
-	//	}
-	//}
-	//angleright = !angleright;
-
-	std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
-
-	for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
-	{
-		switch (itr->second->GetObjectType())
-		{
-		case eObjectType::Player:
-
-			aimingBullet * bullet = new aimingBullet();
-			int EnterBulletX = _x;
-			int EnterBulletY = _y;
-			bullet->Init("Bullet.csv");
-			bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-			bullet->SetOwner(this);
-			bullet->SetTargetPosition(itr->second->GetPostionX(), itr->second->GetPostionY());
-			bullet->SetSpeed(5);
-			((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
-			break;
-		}
-	}
-
-
 
 	//std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
@@ -130,15 +83,15 @@ void Enemy::Attack()
 	//	switch (itr->second->GetObjectType())
 	//	{
 	//	case eObjectType::Player:
-	//		ChaseBullet * bullet = new ChaseBullet();
 
+	//		aimingBullet * bullet = new aimingBullet();
 	//		int EnterBulletX = _x;
-	//		int EnterBulletY = _maxY + 50;
-	//		bullet->Init("ChaseBullet.csv");
+	//		int EnterBulletY = _y;
+	//		bullet->Init("Bullet.csv");
 	//		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-	//		bullet->SetTarget(itr->second);
+	//		bullet->SetOwner(this);
+	//		bullet->SetTargetPosition(itr->second->GetPostionX(), itr->second->GetPostionY());
 	//		bullet->SetSpeed(5);
-	//		
 	//		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
 	//		break;
 	//	}
@@ -147,3 +100,7 @@ void Enemy::Attack()
 
 
 }	
+void Enemy::ChangePattern(eBulletPattern patternType)
+{
+	_pattern = _bulletPatternList[patternType];
+}

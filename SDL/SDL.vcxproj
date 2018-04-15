@@ -148,7 +148,9 @@
     <ClCompile Include="aimingBullet.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletManger.cpp" />
+    <ClCompile Include="BulletPattern.cpp" />
     <ClCompile Include="ChaseBullet.cpp" />
+    <ClCompile Include="ChaseBulletPattern.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameObjectManger.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -161,6 +163,7 @@
     <ClCompile Include="PlayerobcaleCal.cpp" />
     <ClCompile Include="RecourceManger.cpp" />
     <ClCompile Include="RotationBullet.cpp" />
+    <ClCompile Include="RotationBulletPattern.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManger.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -173,7 +176,9 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BulletManger.h" />
+    <ClInclude Include="BulletPattern.h" />
     <ClInclude Include="ChaseBullet.h" />
+    <ClInclude Include="ChaseBulletPattern.h" />
     <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObjectManger.h" />
@@ -186,6 +191,7 @@
     <ClInclude Include="PlayerobcaleCal.h" />
     <ClInclude Include="RecourceManger.h" />
     <ClInclude Include="RotationBullet.h" />
+    <ClInclude Include="RotationBulletPattern.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManger.h" />
     <ClInclude Include="Sprite.h" />

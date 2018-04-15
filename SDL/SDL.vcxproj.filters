@@ -64,6 +64,15 @@
     <Filter Include="소스 파일\Component\Object\Player">
       <UniqueIdentifier>{74748954-8ec6-44e0-978f-d7d0fcde1ed5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Component\Bullet\Pattern">
+      <UniqueIdentifier>{81009e4e-a36b-4775-bb6d-3fee76df2c63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Component\Bullet\Pattern\Rotation">
+      <UniqueIdentifier>{b97e697e-4a71-48bd-9d89-f4596d7adbf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Component\Bullet\Pattern\ChaseBulletPattern">
+      <UniqueIdentifier>{4f4d243c-a45a-4dd1-b1c3-68ee4a5fc7b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -131,6 +140,15 @@
     </ClCompile>
     <ClCompile Include="PlayerobcaleCal.cpp">
       <Filter>소스 파일\Component\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPattern.cpp">
+      <Filter>소스 파일\Component\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="RotationBulletPattern.cpp">
+      <Filter>소스 파일\Component\Bullet\Pattern\Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="ChaseBulletPattern.cpp">
+      <Filter>소스 파일\Component\Bullet\Pattern\ChaseBulletPattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +220,15 @@
     </ClInclude>
     <ClInclude Include="PlayerobcaleCal.h">
       <Filter>소스 파일\Component\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletPattern.h">
+      <Filter>소스 파일\Component\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="RotationBulletPattern.h">
+      <Filter>소스 파일\Component\Bullet\Pattern\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaseBulletPattern.h">
+      <Filter>소스 파일\Component\Bullet\Pattern\ChaseBulletPattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
