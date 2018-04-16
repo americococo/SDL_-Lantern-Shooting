@@ -91,6 +91,15 @@ void PlayerObcaleCal::Update(int deltaTime)
 	if (InputManager::GetInstance()->IsInputKey(SDLK_SPACE))
 		this->Attack();
 
+	if (InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
+	{
+		_speed = 6*1.4;
+	}
+	if (false == InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
+	{
+		_speed = 12;
+	}
+
 
 	_DuractionTime += deltaTime;
 

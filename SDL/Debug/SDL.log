@@ -1,4 +1,3 @@
-﻿  ChaseBulletPattern.cpp
-  RotationBulletPattern.cpp
-  코드를 생성하고 있습니다...
+﻿  PlayerobcaleCal.cpp
+c:\users\a\documents\sdl_project\sdl_-lantern-shooting-master\sdl\playerobcalecal.cpp(96): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   SDL.vcxproj -> C:\Users\a\Documents\SDL_project\SDL_-Lantern-Shooting-master\Debug\SDL.exe

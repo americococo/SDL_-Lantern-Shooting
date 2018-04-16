@@ -11,7 +11,7 @@
 #include <map>
 ChaseBulletPattern::ChaseBulletPattern()
 {
-	_AttackCoolTime = 1000 * 5;
+	_AttackCoolTime = 1000 * 0.3;
 }
 ChaseBulletPattern::~ChaseBulletPattern() {}
 
