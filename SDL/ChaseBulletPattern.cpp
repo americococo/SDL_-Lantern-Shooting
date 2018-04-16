@@ -36,6 +36,7 @@ void ChaseBulletPattern::Update(int deltaTime)
 				bullet->Init("ChaseBullet.csv");
 				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 				bullet->SetTarget(itr->second);
+				bullet->SetOwner(_object);
 				bullet->SetSpeed(5);
 
 				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
@@ -44,9 +45,10 @@ void ChaseBulletPattern::Update(int deltaTime)
 		}
 	}
 
-	_DuractionTime += deltaTime;
+	_DuractionChangeTime += deltaTime;
 	if (_ChangeCoolTime >= _DuractionChangeTime)
 	{
+		_DuractionChangeTime = 0;
 		((Enemy*)_object)->ChangePattern(eBulletPattern::ROTATION);
 	}
 }

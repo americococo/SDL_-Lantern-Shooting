@@ -73,6 +73,12 @@
     <Filter Include="소스 파일\Component\Bullet\Pattern\ChaseBulletPattern">
       <UniqueIdentifier>{4f4d243c-a45a-4dd1-b1c3-68ee4a5fc7b2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Component\Bullet\Pattern\AimingBulletPattern">
+      <UniqueIdentifier>{873461bb-a192-4bf0-b827-955368f6b9c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Component\Bullet\Pattern\PlayerPattern">
+      <UniqueIdentifier>{da57572d-4746-4db8-b2c1-d6837539e951}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -141,14 +147,17 @@
     <ClCompile Include="PlayerobcaleCal.cpp">
       <Filter>소스 파일\Component\Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="BulletPattern.cpp">
-      <Filter>소스 파일\Component\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="RotationBulletPattern.cpp">
       <Filter>소스 파일\Component\Bullet\Pattern\Rotation</Filter>
     </ClCompile>
     <ClCompile Include="ChaseBulletPattern.cpp">
       <Filter>소스 파일\Component\Bullet\Pattern\ChaseBulletPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="AimmingBulletPattern.cpp">
+      <Filter>소스 파일\Component\Bullet\Pattern\AimingBulletPattern</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPattern.cpp">
+      <Filter>소스 파일\Component\Bullet\Pattern</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -221,14 +230,17 @@
     <ClInclude Include="PlayerobcaleCal.h">
       <Filter>소스 파일\Component\Object\Player</Filter>
     </ClInclude>
-    <ClInclude Include="BulletPattern.h">
-      <Filter>소스 파일\Component\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="RotationBulletPattern.h">
       <Filter>소스 파일\Component\Bullet\Pattern\Rotation</Filter>
     </ClInclude>
     <ClInclude Include="ChaseBulletPattern.h">
       <Filter>소스 파일\Component\Bullet\Pattern\ChaseBulletPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="AimmingBulletPattern.h">
+      <Filter>소스 파일\Component\Bullet\Pattern\AimingBulletPattern</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletPattern.h">
+      <Filter>소스 파일\Component\Bullet\Pattern</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

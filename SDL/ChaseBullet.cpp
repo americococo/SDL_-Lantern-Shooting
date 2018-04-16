@@ -20,6 +20,7 @@ void ChaseBullet::Init(const char * name)
 }
 ChaseBullet::~ChaseBullet()
 {
+
 }
 void ChaseBullet::Update(int deltaTime)
 {

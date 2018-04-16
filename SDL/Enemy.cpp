@@ -4,9 +4,10 @@
 
 #include "RotationBulletPattern.h"
 #include "ChaseBulletPattern.h"
+#include "AimmingBulletPattern.h"
 
 #include "Bullet.h"
-#include "RotationBullet.h"//삭제 예정
+#include "RotationBullet.h"
 #include "ChaseBullet.h"
 #include "aimingBullet.h"
 
@@ -46,6 +47,12 @@ void Enemy::Init(const char * name)
 		pattern->Init(this);
 		_bulletPatternList[eBulletPattern::CHASE] = pattern;
 	}
+	{
+		BulletPattern * pattern = new AimmingBulletPattern();
+		pattern->Init(this);
+		_bulletPatternList[eBulletPattern::AIMMING] = pattern;
+	}
+
 
 	_pattern = _bulletPatternList[eBulletPattern::ROTATION];
 }
@@ -75,29 +82,6 @@ void Enemy::Update(int deltaTime)
 
 void Enemy::Attack()
 {
-
-	//std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
-
-	//for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
-	//{
-	//	switch (itr->second->GetObjectType())
-	//	{
-	//	case eObjectType::Player:
-
-	//		aimingBullet * bullet = new aimingBullet();
-	//		int EnterBulletX = _x;
-	//		int EnterBulletY = _y;
-	//		bullet->Init("Bullet.csv");
-	//		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-	//		bullet->SetOwner(this);
-	//		bullet->SetTargetPosition(itr->second->GetPostionX(), itr->second->GetPostionY());
-	//		bullet->SetSpeed(5);
-	//		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
-	//		break;
-	//	}
-	//}
-
-
 
 }	
 void Enemy::ChangePattern(eBulletPattern patternType)

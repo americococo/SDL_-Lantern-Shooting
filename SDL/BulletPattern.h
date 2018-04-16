@@ -5,7 +5,8 @@ enum eBulletPattern
 {
 	AIMMING,
 	ROTATION,
-	CHASE
+	CHASE,
+	NOMAL,
 };
 class BulletPattern
 {

@@ -7,6 +7,8 @@
 class Bullet;
 class State;
 enum eStateType;
+class BulletPattern;
+enum eBulletPattern;
 class PlayerObcaleCal : public GameObject
 {
 
@@ -23,14 +25,7 @@ public:
 	//АјАн
 private:
 	std::queue<Bullet*> _bulletList;
-public:
 
-	void Attack();
-
-
-private:
-	int _AttackCoolTime;
-	int _DuractionTime;
 	
 public:
 	State * _state;
@@ -41,4 +36,8 @@ private:
 
 public:
 	void changeState(eStateType type);	
+
+private:
+	BulletPattern * _pattern;
+	std::map<eBulletPattern, BulletPattern *> _bulletPatternList;
 };

@@ -10,6 +10,8 @@
 #include "GameScene.h"
 #include "SceneManger.h"
 
+#include "BulletPattern.h"
+
 #include "InputManager.h"
 #include "State.h"
 #include "IdleState.h"
@@ -30,10 +32,6 @@ void PlayerObcaleCal::Init(const char * name)
 {
 	_state = nullptr;
 	GameObject::Init(name);
-	
-
-	_AttackCoolTime = 1000 / 10 * 5;
-	_DuractionTime = 0;
 
 	_hp = 10;
 
@@ -53,7 +51,18 @@ void PlayerObcaleCal::Init(const char * name)
 
 	}
 
+
+	{
+		BulletPattern * pattern = new BulletPattern();
+		pattern->Init(this);
+		_bulletPatternList[eBulletPattern::NOMAL] = pattern;
+	}
+
 	changeState(eStateType::IDLE);
+
+	_pattern = _bulletPatternList[eBulletPattern::NOMAL];
+
+
 	_objectType = eObjectType::Player;
 } 
 void PlayerObcaleCal::changeState(eStateType type)
@@ -89,11 +98,11 @@ void PlayerObcaleCal::Update(int deltaTime)
 
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_SPACE))
-		this->Attack();
+		_pattern->Update(deltaTime);
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
 	{
-		_speed = 6*1.4;
+		_speed = 6;
 	}
 	if (false == InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
 	{
@@ -101,24 +110,4 @@ void PlayerObcaleCal::Update(int deltaTime)
 	}
 
 
-	_DuractionTime += deltaTime;
-
-}
-
-void PlayerObcaleCal::Attack()
-{
-	if (_AttackCoolTime <= _DuractionTime)
-	{
-		_DuractionTime = 0;
-
-		Bullet * bullet = new Bullet();
-
-		int EnterBulletX = _x;
-		int EnterBulletY = _minY ;
-		bullet->Init("Bullet.csv");
-		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-		bullet->SetSpeed(-20);
-		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
-
-	}
 }

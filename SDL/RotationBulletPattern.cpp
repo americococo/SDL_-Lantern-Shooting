@@ -8,7 +8,7 @@
 
 RotationBulletPattern::RotationBulletPattern()
 {
-	_AttackCoolTime = 1000 * 1;
+	_AttackCoolTime = 1000 * 0.2;
 }
 RotationBulletPattern::~RotationBulletPattern()
 {
@@ -34,6 +34,7 @@ void RotationBulletPattern::Update(int deltaTime)
 				bullet->Init("Bullet.csv");
 
 				bullet->SetAngle(i);
+				bullet->SetOwner(_object);
 				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 
 				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
@@ -50,6 +51,7 @@ void RotationBulletPattern::Update(int deltaTime)
 				bullet->Init("Bullet.csv");
 
 				bullet->SetAngle(i);
+				bullet->SetOwner(_object);
 				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 
 				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
@@ -58,9 +60,10 @@ void RotationBulletPattern::Update(int deltaTime)
 		angleright = !angleright;
 	}
 
-	_DuractionTime += deltaTime;
+	_DuractionChangeTime += deltaTime;
 	if (_ChangeCoolTime >= _DuractionChangeTime)
 	{
-		((Enemy*)_object)->ChangePattern(eBulletPattern::CHASE);
+		_DuractionChangeTime = 0;
+		((Enemy*)_object)->ChangePattern(eBulletPattern::AIMMING);
 	}
 }

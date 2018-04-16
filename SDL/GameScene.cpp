@@ -13,7 +13,7 @@
 #include <stdio.h>
 GameScene::GameScene()
 {
-	_backGround = new Sprite("background.csv", true);
+	_backGround = new Sprite("GameBackGround.csv", true);
 	
 	_player = new PlayerObcaleCal();
 	_enemy = new Enemy();
