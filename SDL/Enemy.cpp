@@ -75,7 +75,19 @@ void Enemy::Update(int deltaTime)
 
 
 	{
+		std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
+
+		for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
+		{
+			switch (itr->second->GetObjectType())
+			{
+			case eObjectType::Player:
+				_enemy = itr->second;
+				break;
+			}
+		}
 		_pattern->Update(deltaTime);
+		ChangePattern( (eBulletPattern)(rand() % 3));
 		this->Attack();
 	}
 }
@@ -84,7 +96,3 @@ void Enemy::Attack()
 {
 
 }	
-void Enemy::ChangePattern(eBulletPattern patternType)
-{
-	_pattern = _bulletPatternList[patternType];
-}

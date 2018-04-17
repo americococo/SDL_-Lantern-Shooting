@@ -1,2 +1,7 @@
-﻿  PlayerobcaleCal.cpp
+﻿  GameScene.cpp
+  GameObjectManger.cpp
+c:\users\atents\documents\123a\sdl\gameobjectmanger.cpp(38): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\atents\documents\123a\sdl\gameobjectmanger.cpp(43): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+c:\users\atents\documents\123a\sdl\gameobjectmanger.cpp(48): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  코드를 생성하고 있습니다...
   SDL.vcxproj -> C:\Users\Atents\Documents\123A\Debug\SDL.exe

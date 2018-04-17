@@ -23,7 +23,4 @@ protected:
 	int _DuractionTime;
 
 	int _AttackCoolTime;
-
-	int _ChangeCoolTime;
-	int _DuractionChangeTime;
 };

@@ -11,7 +11,7 @@
 #include <map>
 ChaseBulletPattern::ChaseBulletPattern()
 {
-	_AttackCoolTime = 1000 * 0.3;
+	_AttackCoolTime = 1000 * 0.01;
 }
 ChaseBulletPattern::~ChaseBulletPattern() {}
 
@@ -22,33 +22,23 @@ void ChaseBulletPattern::Update(int deltaTime)
 	if (_DuractionTime >= _AttackCoolTime)
 	{
 		_DuractionTime = 0;
-		std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
-		for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
 		{
-			switch (itr->second->GetObjectType())
-			{
-			case eObjectType::Player:
-				ChaseBullet * bullet = new ChaseBullet();
 
-				int EnterBulletX = _object->GetPostionX();
-				int EnterBulletY = _object->GetPostionMaxY() + 50;
-				bullet->Init("ChaseBullet.csv");
-				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-				bullet->SetTarget(itr->second);
-				bullet->SetOwner(_object);
-				bullet->SetSpeed(5);
+			ChaseBullet * bullet = new ChaseBullet();
 
-				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
-				break;
-			}
+			int EnterBulletX = _object->GetPostionX();
+			int EnterBulletY = _object->GetPostionY();
+			bullet->Init("ChaseBullet.csv");
+			bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
+			bullet->SetTarget(_object->GetEnemy());
+			bullet->SetOwner(_object);
+			bullet->SetSpeed(5);
+
+			((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
+
 		}
+
 	}
 
-	_DuractionChangeTime += deltaTime;
-	if (_ChangeCoolTime >= _DuractionChangeTime)
-	{
-		_DuractionChangeTime = 0;
-		((Enemy*)_object)->ChangePattern(eBulletPattern::ROTATION);
-	}
 }

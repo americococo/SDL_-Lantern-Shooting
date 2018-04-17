@@ -11,8 +11,10 @@
 BulletPattern::BulletPattern()
 {
 	_DuractionTime = 0;
-	_AttackCoolTime = 1000 * 0.5;
-	_ChangeCoolTime = 1000 * 1.0;
+	
+
+	_AttackCoolTime = 1000 * 0.2;
+
 }
 
 BulletPattern::~BulletPattern()
@@ -26,6 +28,7 @@ void BulletPattern::Init(GameObject * object)
 void BulletPattern::Update(int deltaTime)
 {
 	_DuractionTime += deltaTime;
+
 	if (_DuractionTime >= _AttackCoolTime)
 	{
 		_DuractionTime = 0;
@@ -38,4 +41,5 @@ void BulletPattern::Update(int deltaTime)
 		bullet->SetSpeed(-20);
 		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
 	}
+
 }

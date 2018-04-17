@@ -11,7 +11,7 @@
 #include <map>
 AimmingBulletPattern::AimmingBulletPattern() 
 {
-	_AttackCoolTime = 1000 ;
+	_AttackCoolTime = 1000 *0.3;
 }
 AimmingBulletPattern::~AimmingBulletPattern() {}
 void AimmingBulletPattern::Update(int deltaTime)
@@ -36,17 +36,11 @@ void AimmingBulletPattern::Update(int deltaTime)
 				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 				bullet->SetOwner(_object);
 				bullet->SetTargetPosition(itr->second->GetPostionX(), itr->second->GetPostionY());
-				bullet->SetSpeed(5);
+				bullet->SetSpeed(15);
 				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
 				break;
 			}
 		}
 	}
 
-	_DuractionChangeTime += deltaTime;
-	if (_ChangeCoolTime >= _DuractionChangeTime)
-	{
-		_DuractionChangeTime = 0;
-		((Enemy*)_object)->ChangePattern(eBulletPattern::CHASE);
-	}
 }

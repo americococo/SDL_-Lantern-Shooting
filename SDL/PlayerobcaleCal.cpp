@@ -11,6 +11,8 @@
 #include "SceneManger.h"
 
 #include "BulletPattern.h"
+#include "ChaseBulletPattern.h"
+
 
 #include "InputManager.h"
 #include "State.h"
@@ -51,16 +53,20 @@ void PlayerObcaleCal::Init(const char * name)
 
 	}
 
-
 	{
 		BulletPattern * pattern = new BulletPattern();
 		pattern->Init(this);
 		_bulletPatternList[eBulletPattern::NOMAL] = pattern;
 	}
+	{
+		BulletPattern * pattern = new ChaseBulletPattern();
+		pattern->Init(this);
+		_bulletPatternList[eBulletPattern::CHASE] = pattern;
+	}
 
 	changeState(eStateType::IDLE);
 
-	_pattern = _bulletPatternList[eBulletPattern::NOMAL];
+	_pattern = _bulletPatternList[eBulletPattern::CHASE];
 
 
 	_objectType = eObjectType::Player;
@@ -96,9 +102,32 @@ void PlayerObcaleCal::Update(int deltaTime)
 
  	_state->Update(deltaTime);
 
+	std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
-	if (InputManager::GetInstance()->IsInputKey(SDLK_SPACE))
+	for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
+	{
+		switch (itr->second->GetObjectType())
+		{
+		case eObjectType::Monster:
+			_enemy = itr->second;
+			break;
+		}
+	}
+
+
+
+	if (InputManager::GetInstance()->IsInputKey(SDLK_z))
 		_pattern->Update(deltaTime);
+
+	if (InputManager::GetInstance()->IsInputKey(SDLK_x))
+	{
+		ChangePattern(eBulletPattern::CHASE);
+	}
+	if (false == InputManager::GetInstance()->IsInputKey(SDLK_x))
+	{
+		ChangePattern(eBulletPattern::NOMAL);
+	}
+
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
 	{
@@ -110,4 +139,8 @@ void PlayerObcaleCal::Update(int deltaTime)
 	}
 
 
+}
+void PlayerObcaleCal::ChangePattern(eBulletPattern patternType)
+{
+	_pattern = _bulletPatternList[patternType];
 }

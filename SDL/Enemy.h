@@ -1,8 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include <map>
-class BulletPattern;
-enum eBulletPattern;
+
 
 
 class Enemy : public GameObject
@@ -20,9 +19,6 @@ public:
 public:
 	void Attack();
 
-	void ChangePattern(eBulletPattern patternType);
-private:
-	BulletPattern * _pattern;
-	std::map<eBulletPattern, BulletPattern *> _bulletPatternList;
+
 };
 

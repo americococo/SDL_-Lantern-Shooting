@@ -47,9 +47,6 @@ void GameScene::DeInit()
 		_backGround = nullptr;
 	}
 
-	_player->DeInit();
-	_enemy->DeInit();
-
 	_objectManger->DeInit();
 	_bulletManger->DeInit();
 }
@@ -57,17 +54,17 @@ void GameScene::Render()
 {
 	_backGround->Render();
 	_bulletManger->Render();
-	_player->Render();
-	_enemy->Render();
+	_objectManger->Render();
 }
 void GameScene::Update(int deltaTime)
 {
 	_backGround->Update(deltaTime);
 	_bulletManger->Update(deltaTime);
-	_player->Update(deltaTime);
-	_enemy->Update(deltaTime);
 
-	if (InputManager::GetInstance()->IsInputKey(SDLK_a))
+	_objectManger->Update(deltaTime);
+
+
+	if (InputManager::GetInstance()->IsInputKey(SDLK_F1))
 	{
 		SceneManger::Getinstance()->ChangeScene(eSceneType::TITLE);
 	}

@@ -19,10 +19,13 @@ public:
 	std::map<int, GameObject*>::iterator GetBegin();
 	std::map<int, GameObject*>::iterator GetEnd() {return _ObjectList.end(); }
 
-	void EraseObject(std::map<int, GameObject*>::iterator itr) { _ObjectList.erase(itr); }
+	void EraseObject(std::map<int, GameObject*>::iterator itr);
 
 	GameObject * FindObject(int ID);
 
+	void Update(int deltaTime);
+	void Render();
 
 	void DeInit();
+
 };

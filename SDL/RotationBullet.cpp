@@ -37,7 +37,7 @@ void RotationBullet::Update(int deltaTime)
 }
 void RotationBullet::MoveBullet()
 {
-	_distance += 5;
+	_distance += _speed;
 	SetBullet();
 }
 void RotationBullet::EnterBulletPosition(int EnterPositionX, int EnterPositionY)

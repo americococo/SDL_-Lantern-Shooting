@@ -35,6 +35,7 @@ void RotationBulletPattern::Update(int deltaTime)
 
 				bullet->SetAngle(i);
 				bullet->SetOwner(_object);
+				bullet->SetSpeed(5);
 				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 
 				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
@@ -52,6 +53,7 @@ void RotationBulletPattern::Update(int deltaTime)
 
 				bullet->SetAngle(i);
 				bullet->SetOwner(_object);
+				bullet->SetSpeed(5);
 				bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 
 				((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
@@ -60,10 +62,4 @@ void RotationBulletPattern::Update(int deltaTime)
 		angleright = !angleright;
 	}
 
-	_DuractionChangeTime += deltaTime;
-	if (_ChangeCoolTime >= _DuractionChangeTime)
-	{
-		_DuractionChangeTime = 0;
-		((Enemy*)_object)->ChangePattern(eBulletPattern::AIMMING);
-	}
 }

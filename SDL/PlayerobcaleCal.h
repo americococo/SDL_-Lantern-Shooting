@@ -40,4 +40,7 @@ public:
 private:
 	BulletPattern * _pattern;
 	std::map<eBulletPattern, BulletPattern *> _bulletPatternList;
+
+public:
+	void ChangePattern(eBulletPattern patternType);
 };

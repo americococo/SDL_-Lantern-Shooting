@@ -8,13 +8,20 @@ enum eObjectType
 	Monster,
 	Object,
 };
-
+class BulletPattern;
+enum eBulletPattern;
+#include <map>
 class GameObject
 {
 public:
 	GameObject();
 	~GameObject();
 
+protected:
+	GameObject * _enemy;
+
+public:
+	GameObject * GetEnemy() { return _enemy; }
 
 protected:
 	int _minX;
@@ -85,4 +92,12 @@ protected:
 public:
 	virtual void Damage();
 	bool GetObjectLive() { return _isLive; }
+
+public:
+	virtual void ChangePattern(eBulletPattern patternType);
+
+
+protected:
+	BulletPattern * _pattern;
+	std::map<eBulletPattern, BulletPattern *> _bulletPatternList;
 };

@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include "GameObjectManger.h"
 #include <stdio.h>
+#include "BulletPattern.h"
 GameObject::GameObject() 
 {
 	
@@ -72,4 +73,8 @@ void GameObject::Damage()
 		_isLive = false;
 	}
 
+}
+void GameObject::ChangePattern(eBulletPattern patternType)
+{
+	_pattern = _bulletPatternList[patternType];
 }
