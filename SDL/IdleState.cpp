@@ -1,7 +1,7 @@
 #include "IdleState.h"
 #include "InputManager.h"
 #include "GameObject.h"
-#include "PlayerobcaleCal.h"
+
 
 IdleState::IdleState()
 {
@@ -18,16 +18,19 @@ void IdleState::Update(int deltaTime)
 	int y = 0;
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_LEFT))
-		(_object)->MoveVector(--x,y);
+		--x;
 
-	 if (InputManager::GetInstance()->IsInputKey(SDLK_RIGHT))
-		(_object)->MoveVector(++x, y);
+	if (InputManager::GetInstance()->IsInputKey(SDLK_RIGHT))
+		++x;
 	
 	if (InputManager::GetInstance()->IsInputKey(SDLK_UP))
-		(_object)->MoveVector(x, --y);
+		--y;
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_DOWN))
-		(_object)->MoveVector(x, ++y);
+		++y;
 
-	((PlayerObcaleCal*)(_object))->changeState(eStateType::MOVE);
+
+	_object->MoveVector(x, y);
+
+	_object->changeState(eStateType::MOVE);
 }

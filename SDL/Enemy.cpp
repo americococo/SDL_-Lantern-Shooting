@@ -17,6 +17,10 @@
 #include "BulletManger.h"
 #include "GameObjectManger.h"
 
+#include "MonsterIdleState.h"
+#include "IdleState.h"
+#include "MoveState.h"
+#include "State.h"
 
 Enemy::Enemy()
 {
@@ -38,6 +42,21 @@ void Enemy::Init(const char * name)
 	_objectType = eObjectType::Monster;
 
 	{
+		{
+			State * state = new MonsterIdleState();
+			state->Init(this);
+			_stateMap[eStateType::IDLE] = state;
+		}
+		{
+			State * state = new MoveState();
+			state->Init(this);
+			_stateMap[eStateType::MOVE] = state;
+		}
+
+	}
+
+
+	{
 		BulletPattern * pattern = new RotationBulletPattern();
 		pattern->Init(this);
 		_bulletPatternList[eBulletPattern::ROTATION] = pattern;
@@ -53,6 +72,7 @@ void Enemy::Init(const char * name)
 		_bulletPatternList[eBulletPattern::AIMMING] = pattern;
 	}
 
+	changeState(eStateType::IDLE);
 
 	_pattern = _bulletPatternList[eBulletPattern::ROTATION];
 }
@@ -73,10 +93,11 @@ void Enemy::Update(int deltaTime)
 		return;
 	GameObject::Update(deltaTime);
 
+	_state->Update(deltaTime);
 
 	{
+		_enemy = nullptr;
 		std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
-
 		for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
 		{
 			switch (itr->second->GetObjectType())
@@ -86,6 +107,7 @@ void Enemy::Update(int deltaTime)
 				break;
 			}
 		}
+
 		_pattern->Update(deltaTime);
 		ChangePattern( (eBulletPattern)(rand() % 3));
 		this->Attack();

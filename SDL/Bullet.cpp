@@ -67,11 +67,6 @@ void Bullet::Update(int deltaTime)
 
 			}
 
-			if (false == itr->second->GetObjectLive())
-			{
-				((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->EraseObject(itr++);
-				return;
-			}
 		}
 	}
 

@@ -8,7 +8,7 @@ public:
 
 
 	void Update(int deltaTime);
-private:
+
 
 };
 

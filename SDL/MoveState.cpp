@@ -1,6 +1,6 @@
 #include "MoveState.h"
 #include "GameObject.h"
-#include "PlayerobcaleCal.h"
+
 MoveState::MoveState()
 {
 	_thisType = eStateType::MOVE;
@@ -22,5 +22,5 @@ void MoveState::Update(int deltaTime)
 
 	_object->ResetMoveVector();
 
-	((PlayerObcaleCal*)(_object))->changeState(eStateType::IDLE);
+	(_object)->changeState(eStateType::IDLE);
 }

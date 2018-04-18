@@ -102,6 +102,8 @@ void PlayerObcaleCal::Update(int deltaTime)
 
  	_state->Update(deltaTime);
 
+
+	_enemy = nullptr;
 	std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
 	for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)

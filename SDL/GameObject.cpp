@@ -3,9 +3,10 @@
 #include "GameObjectManger.h"
 #include <stdio.h>
 #include "BulletPattern.h"
+#include "GameSystem.h"
 GameObject::GameObject() 
 {
-	
+	_state = nullptr;
 }
 GameObject::~GameObject() {}
 
@@ -21,6 +22,8 @@ void GameObject::Init(const char * name)
 
 	_moveX = 0;
 	_moveY = 0;
+
+	_speed = 2;
 }
 
 void GameObject::DeInit()
@@ -62,6 +65,31 @@ void GameObject::SetPostion(int x, int y)
 	_minY = _y - _sprite->GetSpriteRangeY() / 2;
 	_maxY = _y + _sprite->GetSpriteRangeY() / 2;
 
+
+	if (_x >= (GameSystem::Getinstance()->GetWindowW()))
+		_x = GameSystem::Getinstance()->GetWindowW();
+
+	if (_y >= (GameSystem::Getinstance()->GetWindowH()))
+		_y = GameSystem::Getinstance()->GetWindowH();
+
+	if (_x <= 0)
+		_y = 0;
+
+	if (_y <= 0)
+		_y = 0;
+
+}
+
+void GameObject::changeState(eStateType type)
+{
+	if (_state != nullptr)
+	{
+		_state->Stop();
+		_state = nullptr;
+	}
+
+	_state = _stateMap[type];
+	_state->Start();
 }
 void GameObject::Damage()
 {

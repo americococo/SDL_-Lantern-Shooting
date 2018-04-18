@@ -6,7 +6,6 @@
 #include <queue>
 class Bullet;
 class State;
-enum eStateType;
 class BulletPattern;
 enum eBulletPattern;
 class PlayerObcaleCal : public GameObject
@@ -27,11 +26,7 @@ private:
 	std::queue<Bullet*> _bulletList;
 
 	
-public:
-	State * _state;
 
-private:
-	std::map<eStateType, State*> _stateMap;
 
 
 public:

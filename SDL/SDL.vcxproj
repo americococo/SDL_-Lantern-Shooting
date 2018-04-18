@@ -160,6 +160,7 @@
     <ClCompile Include="IdleState.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MonsterIdleState.cpp" />
     <ClCompile Include="MoveState.cpp" />
     <ClCompile Include="PlayerobcaleCal.cpp" />
     <ClCompile Include="RecourceManger.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="GameSystem.h" />
     <ClInclude Include="IdleState.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="MonsterIdleState.h" />
     <ClInclude Include="MoveState.h" />
     <ClInclude Include="PlayerobcaleCal.h" />
     <ClInclude Include="RecourceManger.h" />

@@ -159,6 +159,9 @@
     <ClCompile Include="BulletPattern.cpp">
       <Filter>소스 파일\Component\Bullet\Pattern</Filter>
     </ClCompile>
+    <ClCompile Include="MonsterIdleState.cpp">
+      <Filter>소스 파일\Component\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -241,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="BulletPattern.h">
       <Filter>소스 파일\Component\Bullet\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterIdleState.h">
+      <Filter>소스 파일\Component\State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

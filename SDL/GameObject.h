@@ -1,6 +1,9 @@
 #pragma once
 #include <string>
+#include <map>
 class Sprite;
+
+#include "State.h"
 
 enum eObjectType
 {
@@ -10,7 +13,6 @@ enum eObjectType
 };
 class BulletPattern;
 enum eBulletPattern;
-#include <map>
 class GameObject
 {
 public:
@@ -64,8 +66,14 @@ public:
 	void SetPostion(int x,int  y);
 	
 
+//State
 protected:
+	State * _state;
+	std::map<eStateType, State*> _stateMap;
 	
+public:
+	void changeState(eStateType type);
+
 public:
 
 	int GetPostionX() { return _x; }
