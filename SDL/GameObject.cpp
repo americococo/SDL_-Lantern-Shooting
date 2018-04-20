@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "BulletPattern.h"
 #include "GameSystem.h"
+#include "BulletPattern.h"
 GameObject::GameObject() 
 {
 	_state = nullptr;
@@ -24,6 +25,12 @@ void GameObject::Init(const char * name)
 	_moveY = 0;
 
 	_speed = 2;
+}
+GameObject * GameObject::GetEnemy()
+{
+	if (_enemy.size() <= 0)
+		return nullptr;
+	return _enemy[rand() % _enemy.size()];
 }
 
 void GameObject::DeInit()
@@ -102,7 +109,12 @@ void GameObject::Damage()
 	}
 
 }
-void GameObject::ChangePattern(eBulletPattern patternType)
+void GameObject::ChangePattern(int sol)
 {
-	_pattern = _bulletPatternList[patternType];
+	_pattern = _bulletPatternList[sol];
+}
+void GameObject::InitBulletParttern(BulletPattern * pattern,int sol)
+{
+	pattern->Init(this);
+	_bulletPatternList[sol] = pattern;
 }

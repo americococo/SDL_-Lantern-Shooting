@@ -23,8 +23,7 @@ private:
 	GameObjectManger * _objectManger;
 	BulletManger * _bulletManger;
 	Sprite * _backGround;
-	PlayerObcaleCal * _player;
-	Enemy * _enemy;
+
 
 public:
 	GameObjectManger * GetObjectManger() { return _objectManger; }

@@ -8,12 +8,12 @@
 
 #include "Enemy.h"
 
-BulletPattern::BulletPattern()
+BulletPattern::BulletPattern(int AttackCoolTime)
 {
 	_DuractionTime = 0;
 	
 
-	_AttackCoolTime = 1000 * 0.2;
+	_AttackCoolTime = AttackCoolTime;
 
 }
 
@@ -34,9 +34,10 @@ void BulletPattern::Update(int deltaTime)
 		_DuractionTime = 0;
 		Bullet * bullet = new Bullet();
 
+		bullet->Init("Bullet.csv");
 		int EnterBulletX = _object->GetPostionX();
 		int EnterBulletY = _object->GetPostionMinY();
-		bullet->Init("Bullet.csv");
+
 		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 		bullet->SetSpeed(-20);
 		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);

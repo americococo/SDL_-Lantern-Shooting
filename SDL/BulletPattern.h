@@ -1,17 +1,11 @@
 #pragma once
 
 class GameObject;
-enum eBulletPattern
-{
-	AIMMING,
-	ROTATION,
-	CHASE,
-	NOMAL,
-};
+
 class BulletPattern
 {
 public:
-	BulletPattern();
+	BulletPattern(int AttackCoolTime);
 	~BulletPattern();
 
 	void Init(GameObject * object);
@@ -23,4 +17,7 @@ protected:
 	int _DuractionTime;
 
 	int _AttackCoolTime;
+
+	
+	
 };

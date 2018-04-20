@@ -1,6 +1,7 @@
 #pragma once
 class GameObject;
 #include <map>
+#include <string>
 class GameObjectManger
 {
 
@@ -12,15 +13,15 @@ public:
 	int objectId;
 
 public:
-	std::map<int, GameObject*> _ObjectList;
+	std::map<std::wstring, GameObject*> _ObjectList;
 public:
-	void PushObjaceMap(GameObject * object);
+	void PushObjaceMap(GameObject * object, std::wstring name);
 
-	std::map<int, GameObject*>::iterator GetBegin();
-	std::map<int, GameObject*>::iterator GetEnd() {return _ObjectList.end(); }
+	std::map<std::wstring, GameObject*>::iterator GetBegin();
+	std::map<std::wstring, GameObject*>::iterator GetEnd() {return _ObjectList.end(); }
 
 
-	GameObject * FindObject(int ID);
+	GameObject * FindObject(std::wstring name);
 
 	void Update(int deltaTime);
 	void Render();

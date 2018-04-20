@@ -56,25 +56,9 @@ void Enemy::Init(const char * name)
 	}
 
 
-	{
-		BulletPattern * pattern = new RotationBulletPattern();
-		pattern->Init(this);
-		_bulletPatternList[eBulletPattern::ROTATION] = pattern;
-	}
-	{
-		BulletPattern * pattern = new ChaseBulletPattern();
-		pattern->Init(this);
-		_bulletPatternList[eBulletPattern::CHASE] = pattern;
-	}
-	{
-		BulletPattern * pattern = new AimmingBulletPattern();
-		pattern->Init(this);
-		_bulletPatternList[eBulletPattern::AIMMING] = pattern;
-	}
 
 	changeState(eStateType::IDLE);
 
-	_pattern = _bulletPatternList[eBulletPattern::ROTATION];
 }
 void Enemy::DeInit()
 {
@@ -96,25 +80,25 @@ void Enemy::Update(int deltaTime)
 	_state->Update(deltaTime);
 
 	{
-		_enemy = nullptr;
-		std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
+		_enemy.clear();
+		std::map<std::wstring, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 		for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
 		{
 			switch (itr->second->GetObjectType())
 			{
 			case eObjectType::Player:
-				_enemy = itr->second;
+				_enemy.push_back(itr->second);
 				break;
 			}
 		}
 
+		ChangePattern((rand()%_bulletPatternList.size() + 1));
+
+
 		_pattern->Update(deltaTime);
-		ChangePattern( (eBulletPattern)(rand() % 3));
-		this->Attack();
+
+
+		
+		
 	}
 }
-
-void Enemy::Attack()
-{
-
-}	

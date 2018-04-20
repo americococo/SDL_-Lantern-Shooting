@@ -9,19 +9,25 @@
 #include "aimingBullet.h"
 #include "Enemy.h"
 #include <map>
-AimmingBulletPattern::AimmingBulletPattern() 
+AimmingBulletPattern::AimmingBulletPattern(int AttackCoolTime):BulletPattern(AttackCoolTime)
 {
-	_AttackCoolTime = 1000 *0.3;
+	RestStart = 0;
+	RestEnd = 2000;
+	RestDuractionTIme = 0;
+	RestTime = 5000/2;
 }
 AimmingBulletPattern::~AimmingBulletPattern() {}
 void AimmingBulletPattern::Update(int deltaTime)
 {
 	_DuractionTime += deltaTime;
+	RestDuractionTIme += deltaTime;
 
-	if (_DuractionTime >= _AttackCoolTime)
+	if (_DuractionTime >= _AttackCoolTime &&  RestDuractionTIme >=RestTime)
 	{
 		_DuractionTime = 0;
-		std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
+		RestDuractionTIme = 0;
+
+		std::map<std::wstring, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
 		for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
 		{
@@ -42,5 +48,9 @@ void AimmingBulletPattern::Update(int deltaTime)
 			}
 		}
 	}
-
+	else
+	{
+		
+	}
+	
 }

@@ -76,8 +76,8 @@
     <Filter Include="소스 파일\Component\Bullet\Pattern\AimingBulletPattern">
       <UniqueIdentifier>{873461bb-a192-4bf0-b827-955368f6b9c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Component\Bullet\Pattern\PlayerPattern">
-      <UniqueIdentifier>{da57572d-4746-4db8-b2c1-d6837539e951}</UniqueIdentifier>
+    <Filter Include="소스 파일\Component\Bullet\BulletManger">
+      <UniqueIdentifier>{6ebc0194-0888-44ad-b2d7-14ea7f92c6b1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +109,6 @@
       <Filter>소스 파일\System\GameSystem</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>소스 파일\Component\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletManger.cpp">
       <Filter>소스 파일\Component\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
@@ -162,6 +159,9 @@
     <ClCompile Include="MonsterIdleState.cpp">
       <Filter>소스 파일\Component\State</Filter>
     </ClCompile>
+    <ClCompile Include="BulletManger.cpp">
+      <Filter>소스 파일\Component\Bullet\BulletManger</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -195,9 +195,6 @@
       <Filter>소스 파일\System\GameSystem</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
-      <Filter>소스 파일\Component\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletManger.h">
       <Filter>소스 파일\Component\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
@@ -247,6 +244,9 @@
     </ClInclude>
     <ClInclude Include="MonsterIdleState.h">
       <Filter>소스 파일\Component\State</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManger.h">
+      <Filter>소스 파일\Component\Bullet\BulletManger</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

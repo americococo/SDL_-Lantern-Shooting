@@ -3,7 +3,7 @@
 class AimmingBulletPattern : public BulletPattern
 {
 public:
-	AimmingBulletPattern();
+	AimmingBulletPattern(int AttackCoolTime);
 	~AimmingBulletPattern();
 
 
@@ -11,4 +11,9 @@ public:
 
 private:
 	bool angleright = true;
+
+	int RestStart;
+	int RestEnd;
+	int RestDuractionTIme;
+	int RestTime;
 };

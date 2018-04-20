@@ -16,9 +16,6 @@ public:
 	void Render();
 	void Update(int deltaTime);
 
-public:
-	void Attack();
-
 
 };
 

@@ -4,34 +4,33 @@
 GameObjectManger::GameObjectManger()
 {
 	_ObjectList.clear();
-	objectId = 0;
 }
 
 GameObjectManger::~GameObjectManger()
 {
 }
 
-std::map<int, GameObject*>::iterator  GameObjectManger::GetBegin()
+std::map<std::wstring, GameObject*>::iterator  GameObjectManger::GetBegin()
 {
 	return _ObjectList.begin();
 }
 
-void GameObjectManger::PushObjaceMap(GameObject * object)
+void GameObjectManger::PushObjaceMap(GameObject * object,std::wstring name)
 {
-	object->SetObjectId(objectId);
-	_ObjectList[objectId] = object;
+	_ObjectList[name] = object;
+	object->SetName(name);
 	printf("Position: %d ",object->GetPostionY());
 	objectId++;
 }
 
-GameObject * GameObjectManger::FindObject(int ID)
+GameObject * GameObjectManger::FindObject(std::wstring name)
 {
-	return _ObjectList[ID];
+	return _ObjectList[name];
 }
 void GameObjectManger::Update(int deltaTime)
 {
 
-	std::map<int, GameObject *>::iterator itr;
+	std::map<std::wstring, GameObject *>::iterator itr;
 
 	for (itr = _ObjectList.begin(); itr != _ObjectList.end(); itr++)
 	{
@@ -51,7 +50,7 @@ void GameObjectManger::Update(int deltaTime)
 }
 void GameObjectManger::Render()
 {
-	std::map<int, GameObject *>::iterator itr;
+	std::map<std::wstring, GameObject *>::iterator itr;
 
 	for (itr = _ObjectList.begin(); itr != _ObjectList.end(); itr++)
 	{
@@ -60,7 +59,7 @@ void GameObjectManger::Render()
 }
 void GameObjectManger::DeInit()
 {
-	std::map<int, GameObject *>::iterator itr;
+	std::map<std::wstring, GameObject *>::iterator itr;
 
 	for (itr = _ObjectList.begin(); itr != _ObjectList.end(); itr++)
 	{

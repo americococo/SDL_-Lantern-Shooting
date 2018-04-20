@@ -3,7 +3,7 @@
 class ChaseBulletPattern : public BulletPattern
 {
 public:
-	ChaseBulletPattern();
+	ChaseBulletPattern(int AttackCoolTime);
 	~ChaseBulletPattern();
 
 

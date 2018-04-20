@@ -4,7 +4,7 @@
 class Sprite;
 
 #include "State.h"
-
+#include <vector>
 enum eObjectType
 {
 	Player,
@@ -20,10 +20,10 @@ public:
 	~GameObject();
 
 protected:
-	GameObject * _enemy;
+	std::vector<GameObject*> _enemy;
 
 public:
-	GameObject * GetEnemy() { return _enemy; }
+	GameObject * GetEnemy();
 
 protected:
 	int _minX;
@@ -102,10 +102,20 @@ public:
 	bool GetObjectLive() { return _isLive; }
 
 public:
-	virtual void ChangePattern(eBulletPattern patternType);
+	virtual void ChangePattern(int sol);
 
 
 protected:
 	BulletPattern * _pattern;
-	std::map<eBulletPattern, BulletPattern *> _bulletPatternList;
+	std::map<int, BulletPattern *> _bulletPatternList;
+
+public:
+	void InitBulletParttern(BulletPattern * pattern,int sol);
+
+	
+protected:
+	std::wstring _name;
+public:
+	std::wstring GetName() { return _name; }
+	void SetName(std::wstring name) { _name = name; }
 };

@@ -6,9 +6,9 @@
 
 #include "Enemy.h"
 
-RotationBulletPattern::RotationBulletPattern()
+RotationBulletPattern::RotationBulletPattern(int AttackCoolTIme):BulletPattern(AttackCoolTIme)
 {
-	_AttackCoolTime = 1000 * 0.2;
+	
 }
 RotationBulletPattern::~RotationBulletPattern()
 {

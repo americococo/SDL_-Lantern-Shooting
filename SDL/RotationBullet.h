@@ -14,8 +14,6 @@ public:
 public:
 	void SetAngle(int angle);
 
-	void EnterBulletPosition(int enterBulletX, int enterBulletY);
-
 private:
 	
 	int _angle;

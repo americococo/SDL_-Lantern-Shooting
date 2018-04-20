@@ -53,21 +53,9 @@ void PlayerObcaleCal::Init(const char * name)
 
 	}
 
-	{
-		BulletPattern * pattern = new BulletPattern();
-		pattern->Init(this);
-		_bulletPatternList[eBulletPattern::NOMAL] = pattern;
-	}
-	{
-		BulletPattern * pattern = new ChaseBulletPattern();
-		pattern->Init(this);
-		_bulletPatternList[eBulletPattern::CHASE] = pattern;
-	}
+
 
 	changeState(eStateType::IDLE);
-
-	_pattern = _bulletPatternList[eBulletPattern::CHASE];
-
 
 	_objectType = eObjectType::Player;
 } 
@@ -103,18 +91,18 @@ void PlayerObcaleCal::Update(int deltaTime)
  	_state->Update(deltaTime);
 
 
-	_enemy = nullptr;
-	std::map<int, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
+	_enemy.clear();
+
+	std::map<std::wstring, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
 	for (itr; itr != ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetEnd(); itr++)
 	{
-		switch (itr->second->GetObjectType())
+		if(itr->second->GetObjectType()== eObjectType::Monster)
 		{
-		case eObjectType::Monster:
-			_enemy = itr->second;
-			break;
+			_enemy.push_back(itr->second);
 		}
 	}
+	
 
 
 
@@ -123,11 +111,11 @@ void PlayerObcaleCal::Update(int deltaTime)
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_x))
 	{
-		ChangePattern(eBulletPattern::CHASE);
+		ChangePattern(2);
 	}
 	if (false == InputManager::GetInstance()->IsInputKey(SDLK_x))
 	{
-		ChangePattern(eBulletPattern::NOMAL);
+		ChangePattern(1);
 	}
 
 
@@ -141,8 +129,4 @@ void PlayerObcaleCal::Update(int deltaTime)
 	}
 
 
-}
-void PlayerObcaleCal::ChangePattern(eBulletPattern patternType)
-{
-	_pattern = _bulletPatternList[patternType];
 }

@@ -3,7 +3,7 @@
 class RotationBulletPattern : public BulletPattern
 {
 public:
-	RotationBulletPattern();
+	RotationBulletPattern(int AttackCoolTIme);
 	~RotationBulletPattern();
 
 

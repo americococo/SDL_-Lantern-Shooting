@@ -40,11 +40,7 @@ void RotationBullet::MoveBullet()
 	_distance += _speed;
 	SetBullet();
 }
-void RotationBullet::EnterBulletPosition(int EnterPositionX, int EnterPositionY)
-{
-	_EnterBulletPositionX = EnterPositionX;
-	_EnterBulletPositionY = EnterPositionY;
-}
+
 
 void RotationBullet::SetBullet()
 {

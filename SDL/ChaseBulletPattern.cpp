@@ -10,9 +10,9 @@
 #include "Enemy.h"
 #include <stdio.h>
 #include <map>
-ChaseBulletPattern::ChaseBulletPattern()
+ChaseBulletPattern::ChaseBulletPattern(int AttackCoolTime):BulletPattern(AttackCoolTime)
 {
-	_AttackCoolTime = 1000 * 0.6;
+	
 }
 ChaseBulletPattern::~ChaseBulletPattern() {}
 
@@ -29,12 +29,14 @@ void ChaseBulletPattern::Update(int deltaTime)
 		{
 			ChaseBullet * bullet = new ChaseBullet();
 
+			bullet->Init("ChaseBullet.csv");
 			int EnterBulletX = _object->GetPostionX();
 			int EnterBulletY = _object->GetPostionY();
-			bullet->Init("ChaseBullet.csv");
-			bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
-			bullet->SetTarget(_object->GetEnemy());
+
 			bullet->SetOwner(_object);
+			bullet->SetTarget(_object->GetEnemy());
+
+			bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 			bullet->SetSpeed(5);
 
 			((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);
