@@ -14,15 +14,12 @@ int main(int argc,char * argv[])
 		GameSystem::Getinstance()->GetWindowW(), 
 		GameSystem::Getinstance()->GetWindowH(),
 		SDL_WINDOW_OPENGL);
-
-
 	
 	GameSystem::Getinstance()->setRender(SDL_CreateRenderer(SDL_win, -1, 0));
 
 	SceneManger::Getinstance()->ChangeScene(eSceneType::TITLE);
 
 	SDL_SetRenderDrawColor(GameSystem::Getinstance()->GetRender(), 255, 255, 255, 255);
-
 
 	SDL_Event Event;
 
@@ -64,7 +61,6 @@ int main(int argc,char * argv[])
 				if (SDL_KEYDOWN == Event.type)
 				{
 					InputManager::GetInstance()->KeyDown(Event.key.keysym.sym);
-					// SceneManger::Getinstance()->keyDown(Event.key.keysym.sym);
 				}
 			}
 
@@ -82,7 +78,6 @@ int main(int argc,char * argv[])
 	}
 
 	SDL_DestroyRenderer(GameSystem::Getinstance()->GetRender());
-
 
 	return 0;
 }

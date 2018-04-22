@@ -1,10 +1,11 @@
 #include "GameObject.h"
 #include "Sprite.h"
 #include "GameObjectManger.h"
-#include <stdio.h>
 #include "BulletPattern.h"
 #include "GameSystem.h"
 #include "BulletPattern.h"
+#include <string.h>
+#include <stdio.h>
 GameObject::GameObject() 
 {
 	_state = nullptr;
@@ -13,10 +14,36 @@ GameObject::~GameObject() {}
 
 void GameObject::Init(const char * name)
 {
-	_sprite = new Sprite(name, true);
-	_ObjectId = 1;
+	char filePath[256];
+	sprintf(filePath, "../Resource/%s", name);
+	FILE *fp = fopen(filePath, "r");
+	if (NULL == fp)
+	{
+		printf("파일없음:%s\n", name);
 
-	_hp = 5;
+	}
+
+	char buffer[1024];
+
+	char * SpriteFile;
+
+	char * record = fgets(buffer, sizeof(buffer), fp);
+
+	while (true)
+	{
+		record = fgets(buffer, sizeof(buffer), fp);
+		if (NULL == record)
+			break;
+		{//append 해줄부분
+			char * token = strtok(record, ",");
+			SpriteFile = token;
+			token = strtok(NULL, ",");
+			_hp = atoi(token);
+		}
+	}
+	fclose(fp);
+
+	_sprite = new Sprite(SpriteFile, true);
 	_isLive = true;
 
 	_objectType = eObjectType::Object;
@@ -59,7 +86,7 @@ void GameObject::MoveVector(int moveX, int moveY)
 	_moveY = moveY;
 }
 
-void GameObject::SetPostion(int x, int y)
+void GameObject::SetPostion(float x, float y)
 {
 	_x = x;
 	_y = y;

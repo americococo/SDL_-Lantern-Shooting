@@ -11,21 +11,18 @@
 #include <map>
 AimmingBulletPattern::AimmingBulletPattern(int AttackCoolTime):BulletPattern(AttackCoolTime)
 {
-	RestStart = 0;
-	RestEnd = 2000;
-	RestDuractionTIme = 0;
-	RestTime = 5000/2;
+
 }
 AimmingBulletPattern::~AimmingBulletPattern() {}
 void AimmingBulletPattern::Update(int deltaTime)
 {
 	_DuractionTime += deltaTime;
-	RestDuractionTIme += deltaTime;
+	
 
-	if (_DuractionTime >= _AttackCoolTime &&  RestDuractionTIme >=RestTime)
+	if (_DuractionTime >= _AttackCoolTime)
 	{
 		_DuractionTime = 0;
-		RestDuractionTIme = 0;
+		
 
 		std::map<std::wstring, GameObject*>::iterator itr = ((GameScene*)SceneManger::Getinstance()->GetScene())->GetObjectManger()->GetBegin();
 
@@ -48,9 +45,6 @@ void AimmingBulletPattern::Update(int deltaTime)
 			}
 		}
 	}
-	else
-	{
-		
-	}
+
 	
 }

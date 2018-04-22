@@ -9,10 +9,7 @@ public:
 	GameObjectManger();
 	~GameObjectManger();
 
-
-	int objectId;
-
-public:
+private:
 	std::map<std::wstring, GameObject*> _ObjectList;
 public:
 	void PushObjaceMap(GameObject * object, std::wstring name);

@@ -33,11 +33,6 @@ Enemy::~Enemy()
 void Enemy::Init(const char * name)
 {
 	GameObject::Init(name);
-	_ObjectId = 10;
-
-	_hp = 100;
-
-
 
 	_objectType = eObjectType::Monster;
 

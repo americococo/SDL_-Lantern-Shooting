@@ -11,6 +11,7 @@ enum eObjectType
 	Monster,
 	Object,
 };
+
 class BulletPattern;
 enum eBulletPattern;
 class GameObject
@@ -31,8 +32,8 @@ protected:
 	int _maxX;
 	int _maxY;
 
-	int _x;
-	int _y;
+	float _x;
+	float _y;
 public:
 	int GetPostionMinX() { return _minX; }
 	int GetPostionMaxX() { return _maxX; }
@@ -63,8 +64,9 @@ public:
 	virtual	void Render();
 	virtual	void Update(int deltaTime);
 
-	void SetPostion(int x,int  y);
+	void SetPostion(float x,float y);
 	
+
 
 //State
 protected:
@@ -78,14 +80,6 @@ public:
 
 	int GetPostionX() { return _x; }
 	int GetPostionY() { return _y; }
-
-
-protected:
-	int _ObjectId;
-
-public:
-	int GetObjectId() { return _ObjectId; }
-	void SetObjectId(int ObjectId) { _ObjectId = ObjectId; }
 
 protected:
 	eObjectType _objectType;

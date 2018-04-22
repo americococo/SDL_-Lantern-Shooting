@@ -35,9 +35,13 @@ void PlayerObcaleCal::Init(const char * name)
 	_state = nullptr;
 	GameObject::Init(name);
 
-	_hp = 10;
+	_minX += 20;
+	_maxX -= 20;
 
-	_speed = 12;
+	_minY += 20;
+	_maxY -= 20;
+
+	_speed = 15;
 
 	{
 		{
@@ -103,25 +107,22 @@ void PlayerObcaleCal::Update(int deltaTime)
 		}
 	}
 	
-
-
-
 	if (InputManager::GetInstance()->IsInputKey(SDLK_z))
 		_pattern->Update(deltaTime);
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_x))
 	{
-		ChangePattern(2);
+		ChangePattern(1);
 	}
 	if (false == InputManager::GetInstance()->IsInputKey(SDLK_x))
 	{
-		ChangePattern(1);
+		ChangePattern(2);
 	}
 
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
 	{
-		_speed = 6;
+		_speed = 5.3f;
 	}
 	if (false == InputManager::GetInstance()->IsInputKey(SDLK_LSHIFT))
 	{

@@ -5,6 +5,7 @@
 #include "GameObjectManger.h"
 #include "GameSystem.h"
 #include "PlayerobcaleCal.h"
+#include "Sprite.h"
 #include <map>
 #include <stdio.h>
 Bullet::Bullet():GameObject()
@@ -18,7 +19,7 @@ Bullet::~Bullet()
 
 void Bullet::Init(const char * name)
 {
-	GameObject::Init(name);
+	_sprite = new Sprite(name, true);
 }
 
 void Bullet::EnterBulletPosition(int EnterPositionX, int EnterPositionY)

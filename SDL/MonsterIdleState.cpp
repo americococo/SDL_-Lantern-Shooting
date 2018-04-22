@@ -24,8 +24,8 @@ void MonsterIdleState::Update(int deltaTIme)
 
 		float radian = (angle*90) * 3.141592 / 180;
 
-		x = 3 * sin(radian);
-		y = 3 * cos(radian);
+		x = 1 * sin(radian);
+		y = 1 * cos(radian);
 
 		_object->MoveVector(x, y);
 	}

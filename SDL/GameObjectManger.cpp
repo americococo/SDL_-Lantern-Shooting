@@ -19,8 +19,7 @@ void GameObjectManger::PushObjaceMap(GameObject * object,std::wstring name)
 {
 	_ObjectList[name] = object;
 	object->SetName(name);
-	printf("Position: %d ",object->GetPostionY());
-	objectId++;
+	printf("Position: %d ", object->GetPostionY());
 }
 
 GameObject * GameObjectManger::FindObject(std::wstring name)
