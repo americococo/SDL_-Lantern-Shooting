@@ -19,7 +19,6 @@ void aimingBullet::Update(int deltaTime)
 	Bullet::Update(deltaTime);
 }
 
-
 void aimingBullet::MoveBullet()
 {
 	float distanceX = _targetX - _EnterBulletPositionX;

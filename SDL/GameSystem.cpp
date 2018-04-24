@@ -16,6 +16,12 @@ GameSystem::GameSystem()
 {
 	_windowW = 1024;
 	_windowH = 800;
+
+	_screenLeft = 0 + 50;
+	_screenRight = _windowW - 50;
+
+	_screenTop = 0 + 50;
+	_screenBottom = _windowH - 50;
 }
 
 GameSystem::~GameSystem()

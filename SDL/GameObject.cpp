@@ -51,6 +51,9 @@ void GameObject::Init(const char * name)
 	_moveX = 0;
 	_moveY = 0;
 
+	_x = 0;
+	_y = 0;
+
 	_speed = 2;
 }
 GameObject * GameObject::GetEnemy()
@@ -80,37 +83,48 @@ void GameObject::Update(int deltaTime)
 	_sprite->Update(deltaTime);
 }
 
+
 void GameObject::MoveVector(int moveX, int moveY)
 {
 	_moveX = moveX;
 	_moveY = moveY;
 }
+void GameObject::SetColider(int size)
+{
+	_size = size;
+	_minX = _x - size;
+	_maxX = _x + size;
 
+	_minY = _y - size;
+	_maxY = _y + size;
+}
 void GameObject::SetPostion(float x, float y)
 {
+	_sprite->SetPostion(x, y);
+
 	_x = x;
 	_y = y;
 
-	_sprite->SetPostion(x, y);
+	_minX = x - _size;
+	_maxX = x + _size;
 
-	_minX = _x - _sprite->GetSpriteRangeX() / 2;
-	_maxX = _x + _sprite->GetSpriteRangeX() / 2;
+	_minY = y - _size;
+	_maxY = y + _size;
 
-	_minY = _y - _sprite->GetSpriteRangeY() / 2;
-	_maxY = _y + _sprite->GetSpriteRangeY() / 2;
+	if (_x >= (GameSystem::Getinstance()->GetGameScreenRight()))
+		_x = GameSystem::Getinstance()->GetGameScreenRight();
+
+	if (_y >= (GameSystem::Getinstance()->GetGameScreenBottom()))
+		_y = GameSystem::Getinstance()->GetGameScreenBottom();
+
+	if (_x <= GameSystem::Getinstance()->GetGameScreenLeft())
+		_x = GameSystem::Getinstance()->GetGameScreenLeft();
+
+	if (_y <= GameSystem::Getinstance()->GetGameScreenTop())
+		_y = GameSystem::Getinstance()->GetGameScreenTop();
 
 
-	if (_x >= (GameSystem::Getinstance()->GetWindowW()))
-		_x = GameSystem::Getinstance()->GetWindowW();
-
-	if (_y >= (GameSystem::Getinstance()->GetWindowH()))
-		_y = GameSystem::Getinstance()->GetWindowH();
-
-	if (_x <= 0)
-		_y = 0;
-
-	if (_y <= 0)
-		_y = 0;
+	
 
 }
 

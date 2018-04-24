@@ -1,5 +1,5 @@
 #include "MonsterIdleState.h"
-#include "GameObject.h"
+#include "Enemy.h"
 #include <time.h>
 #include <stdlib.h>
 MonsterIdleState::MonsterIdleState() 

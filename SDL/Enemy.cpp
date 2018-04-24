@@ -22,6 +22,8 @@
 #include "MoveState.h"
 #include "State.h"
 
+#include "GameSystem.h"
+
 Enemy::Enemy()
 {
 
@@ -50,7 +52,8 @@ void Enemy::Init(const char * name)
 
 	}
 
-
+	_wayPointX = rand() % (GameSystem::Getinstance()->GetGameScreenRight() - GameSystem::Getinstance()->GetGameScreenLeft()) +1;
+	_wayPointY = rand() % (GameSystem::Getinstance()->GetGameScreenBottom() - GameSystem::Getinstance()->GetGameScreenTop()) +1;
 
 	changeState(eStateType::IDLE);
 

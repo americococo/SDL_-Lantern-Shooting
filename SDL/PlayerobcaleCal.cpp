@@ -35,12 +35,6 @@ void PlayerObcaleCal::Init(const char * name)
 	_state = nullptr;
 	GameObject::Init(name);
 
-	_minX += 20;
-	_maxX -= 20;
-
-	_minY += 20;
-	_maxY -= 20;
-
 	_speed = 15;
 
 	{
@@ -91,6 +85,7 @@ void PlayerObcaleCal::Update(int deltaTime)
 		return;
 	GameObject::Update(deltaTime);
 
+	
 
  	_state->Update(deltaTime);
 
@@ -129,5 +124,9 @@ void PlayerObcaleCal::Update(int deltaTime)
 		_speed = 12;
 	}
 
-
+	if (InputManager::GetInstance()->IsInputKey(SDLK_SPACE))
+	{
+		printf("\nMinX : %d MaxX :%d \n",_minX,_maxX);
+		printf("MinY :%d MaxY :%d \n\n position X:%f Y:%f ", _minY, _maxY, _x, _y);
+	}
 }

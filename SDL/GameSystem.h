@@ -36,6 +36,20 @@ public:
 	int GetWindowCenterX();
 	int GetWindowCenterY();
 
+
+//Game Screen
+private:
+	int _screenLeft;
+	int _screenRight;
+	int _screenBottom;
+	int _screenTop;
+
+public:
+	int GetGameScreenLeft() { return _screenLeft; }
+	int GetGameScreenRight() { return _screenRight; }
+	int GetGameScreenBottom() { return _screenBottom; }
+	int GetGameScreenTop() { return _screenTop; }
+
 	//Quit
 public:
 	void Quit();

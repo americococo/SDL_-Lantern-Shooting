@@ -42,6 +42,17 @@ void Bullet::Render()
 
 	GameObject::Render();
 }
+
+void Bullet::SetColider(int size)
+{
+	_minX = _x - _sprite->GetSpriteRangeX() / 2;
+	_maxX = _x + _sprite->GetSpriteRangeX() / 2;
+
+	_minY = _y - _sprite->GetSpriteRangeY() / 2;
+	_maxY = _y + _sprite->GetSpriteRangeY() / 2;
+
+	_size = _sprite->GetSpriteRangeY() / 2;
+}
 void Bullet::Update(int deltaTime)
 {
 	if (_isLive == false)
@@ -71,7 +82,7 @@ void Bullet::Update(int deltaTime)
 		}
 	}
 
-	if (true == CheckOutscreen())
+	if (false == CheckOutscreen())
 		_isLive = false;
 
 }
@@ -94,7 +105,8 @@ void Bullet::SetSpeed(int speed)
 
 bool Bullet::CheckOutscreen()
 {
-	if (_y > GameSystem::Getinstance()->GetWindowH() || _y < 0 ||
-		GameSystem::Getinstance()->GetWindowW() < _x || _x < 0)
+	if(_x >= GameSystem::Getinstance()->GetGameScreenLeft() && _x <= GameSystem::Getinstance()->GetGameScreenRight()
+		&& _y >= GameSystem::Getinstance()->GetGameScreenTop() && _y <= GameSystem::Getinstance()->GetGameScreenBottom())
 		return true;
+	return false;
 }

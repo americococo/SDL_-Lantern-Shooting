@@ -36,7 +36,7 @@ void BulletPattern::Update(int deltaTime)
 
 		bullet->Init("Bullet.csv");
 		int EnterBulletX = _object->GetPostionX();
-		int EnterBulletY = _object->GetPostionMinY();
+		int EnterBulletY = _object->GetPostionY();
 
 		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 		bullet->SetSpeed(-20);

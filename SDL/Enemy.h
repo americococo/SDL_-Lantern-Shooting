@@ -17,5 +17,13 @@ public:
 	void Update(int deltaTime);
 
 
+
+private:
+	float _wayPointX;
+	float _wayPointY;
+
+public:
+	float GetWayPointX() { return _wayPointX; }
+	float GetWayPointY() { return _wayPointY; }
 };
 

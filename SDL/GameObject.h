@@ -26,20 +26,30 @@ protected:
 public:
 	GameObject * GetEnemy();
 
+
 protected:
 	int _minX;
 	int _minY;
 	int _maxX;
 	int _maxY;
 
+
+
 	float _x;
 	float _y;
+
 public:
 	int GetPostionMinX() { return _minX; }
 	int GetPostionMaxX() { return _maxX; }
 
 	int GetPostionMinY() { return _minY; }
 	int GetPostionMaxY() { return _maxY; }
+
+
+protected:
+	int _size;
+public:
+	virtual void SetColider(int size);
 
 protected:
 	int _speed;
@@ -78,8 +88,8 @@ public:
 
 public:
 
-	int GetPostionX() { return _x; }
-	int GetPostionY() { return _y; }
+	float GetPostionX() { return _x; }
+	float GetPostionY() { return _y; }
 
 protected:
 	eObjectType _objectType;
