@@ -45,12 +45,6 @@ public:
 	int GetPostionMinY() { return _minY; }
 	int GetPostionMaxY() { return _maxY; }
 
-
-protected:
-	int _size;
-public:
-	virtual void SetColider(int size);
-
 protected:
 	int _speed;
 
@@ -74,7 +68,7 @@ public:
 	virtual	void Render();
 	virtual	void Update(int deltaTime);
 
-	void SetPostion(float x,float y);
+	virtual void SetPostion(float x,float y);
 	
 
 

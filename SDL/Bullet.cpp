@@ -43,16 +43,6 @@ void Bullet::Render()
 	GameObject::Render();
 }
 
-void Bullet::SetColider(int size)
-{
-	_minX = _x - _sprite->GetSpriteRangeX() / 2;
-	_maxX = _x + _sprite->GetSpriteRangeX() / 2;
-
-	_minY = _y - _sprite->GetSpriteRangeY() / 2;
-	_maxY = _y + _sprite->GetSpriteRangeY() / 2;
-
-	_size = _sprite->GetSpriteRangeY() / 2;
-}
 void Bullet::Update(int deltaTime)
 {
 	if (_isLive == false)

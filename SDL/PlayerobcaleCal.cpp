@@ -18,6 +18,9 @@
 #include "State.h"
 #include "IdleState.h"
 #include "MoveState.h"
+
+#include "GameSystem.h"
+
 #include <SDL.h>
 #include <stdio.h>
 
@@ -36,7 +39,6 @@ void PlayerObcaleCal::Init(const char * name)
 	GameObject::Init(name);
 
 	_speed = 15;
-
 	{
 		{
 			IdleState * state = new IdleState();
@@ -48,10 +50,10 @@ void PlayerObcaleCal::Init(const char * name)
 			state->Init(this);
 			_stateMap[eStateType::MOVE] = state;
 		}
-
 	}
 
-
+	_dot = new Sprite("PlayerDotSprite.csv", true);
+	
 
 	changeState(eStateType::IDLE);
 
@@ -68,9 +70,41 @@ void PlayerObcaleCal::changeState(eStateType type)
 	_state = _stateMap[type];
 	_state->Start();
 }
+void PlayerObcaleCal::SetPostion(float x,float y)
+{
+	_sprite->SetPostion(x, y);
+	_dot->SetPostion(x, y);
+	_x = x;
+	_y = y;
+
+	_minX = x - _dot->GetSpriteRangeX() / 2;
+	_maxX = x + _dot->GetSpriteRangeX() / 2;
+
+	_minY = y - _dot->GetSpriteRangeY() / 2;
+	_maxY = y + _dot->GetSpriteRangeY() / 2;
+
+	if (_x >= (GameSystem::Getinstance()->GetGameScreenRight()))
+		_x = GameSystem::Getinstance()->GetGameScreenRight();
+
+	if (_y >= (GameSystem::Getinstance()->GetGameScreenBottom()))
+		_y = GameSystem::Getinstance()->GetGameScreenBottom();
+
+	if (_x <= GameSystem::Getinstance()->GetGameScreenLeft())
+		_x = GameSystem::Getinstance()->GetGameScreenLeft();
+
+	if (_y <= GameSystem::Getinstance()->GetGameScreenTop())
+		_y = GameSystem::Getinstance()->GetGameScreenTop();
+}
+
 void PlayerObcaleCal::DeInit()
 {
 	GameObject::DeInit();
+
+	if (_sprite != nullptr)
+	{
+		delete _sprite;
+		_sprite = nullptr;
+	}
 }
 void PlayerObcaleCal::Render()
 {
@@ -78,6 +112,8 @@ void PlayerObcaleCal::Render()
 		return;
 
 	GameObject::Render();
+
+	_dot->Render();
 }
 void PlayerObcaleCal::Update(int deltaTime)
 {
@@ -85,7 +121,7 @@ void PlayerObcaleCal::Update(int deltaTime)
 		return;
 	GameObject::Update(deltaTime);
 
-	
+	_dot->Update(deltaTime);
 
  	_state->Update(deltaTime);
 
@@ -124,9 +160,4 @@ void PlayerObcaleCal::Update(int deltaTime)
 		_speed = 12;
 	}
 
-	if (InputManager::GetInstance()->IsInputKey(SDLK_SPACE))
-	{
-		printf("\nMinX : %d MaxX :%d \n",_minX,_maxX);
-		printf("MinY :%d MaxY :%d \n\n position X:%f Y:%f ", _minY, _maxY, _x, _y);
-	}
 }

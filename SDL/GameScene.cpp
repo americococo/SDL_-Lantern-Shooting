@@ -36,7 +36,7 @@ void GameScene::Init()
 		player->Init("PlayerInfo.csv");
 		player->InitBulletParttern(new BulletPattern(1000*0.5), 1);
 		player->InitBulletParttern(new ChaseBulletPattern(1000*0.8),2);
-		player->SetColider(5);
+
 		player->SetPostion(GameSystem::Getinstance()->GetWindowCenterX(), 750);
 
 		_objectManger->PushObjaceMap(player, L"Player");
@@ -46,7 +46,7 @@ void GameScene::Init()
 		enemy->Init("EnemyInfo.csv");
 		enemy->InitBulletParttern(new RotationBulletPattern(1000*0.2),1);
 		enemy->InitBulletParttern(new AimmingBulletPattern(1000*0.5), 2);
-		enemy->SetColider(30);
+		
 		enemy->SetPostion(GameSystem::Getinstance()->GetWindowCenterX()-300, 100);
 		_objectManger->PushObjaceMap(enemy, L"Enemy1");
 	}
@@ -54,7 +54,7 @@ void GameScene::Init()
 		GameObject * enemy = new Enemy();
 		enemy->Init("EnemyInfo.csv");
 		enemy->InitBulletParttern(new ChaseBulletPattern(1000*0.8), 1);
-		enemy->SetColider(30);
+		
 		enemy->SetPostion(GameSystem::Getinstance()->GetWindowCenterX()+300, 100);
 		_objectManger->PushObjaceMap(enemy, L"Enemy2");
 	}
@@ -62,7 +62,7 @@ void GameScene::Init()
 		GameObject * enemy = new Enemy();
 		enemy->Init("EnemyInfo.csv");
 		enemy->InitBulletParttern(new ChaseBulletPattern(1000 * 0.8), 1);
-		enemy->SetColider(30);
+		
 		enemy->SetPostion(GameSystem::Getinstance()->GetWindowCenterX(),GameSystem::Getinstance()->GetWindowCenterY());
 		_objectManger->PushObjaceMap(enemy, L"Enemy3");
 	}

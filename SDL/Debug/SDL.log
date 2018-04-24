@@ -1,49 +1,13 @@
-﻿  Bullet.cpp
-c:\users\atents\documents\123a\sdl\bullet.cpp(30): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\bullet.cpp(31): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\bullet.cpp(48): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\bullet.cpp(49): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\bullet.cpp(51): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\bullet.cpp(52): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  컴파일하고 있습니다...
-  GameObject.cpp
-c:\users\atents\documents\123a\sdl\gameobject.cpp(18): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(1772): note: 'sprintf' 선언을 참조하십시오.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(19): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\stdio.h(207): note: 'fopen' 선언을 참조하십시오.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(38): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(40): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\string.h(439): note: 'strtok' 선언을 참조하십시오.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(95): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(96): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(98): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(99): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(103): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(108): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(109): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(111): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(112): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(115): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(118): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(121): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\atents\documents\123a\sdl\gameobject.cpp(124): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  건너뛰고 있습니다... (관련된 변경 내용 없음)
-  aimingBullet.cpp
-  RotationBulletPattern.cpp
-  RotationBullet.cpp
-  PlayerobcaleCal.cpp
-  MoveState.cpp
-  MonsterIdleState.cpp
-  IdleState.cpp
-  GameScene.cpp
-  GameObjectManger.cpp
-  Enemy.cpp
-  ChaseBulletPattern.cpp
-  ChaseBullet.cpp
-  BulletPattern.cpp
-  BulletManger.cpp
-  AimmingBulletPattern.cpp
-  SDL.vcxproj -> C:\Users\Atents\Documents\123A\Debug\SDL.exe
+﻿  PlayerobcaleCal.cpp
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(76): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(80): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(81): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(83): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(84): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(87): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(90): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(93): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(96): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(156): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SDL.vcxproj -> C:\Users\a\Documents\GitHub\SDL_-Lantern-Shooting\Debug\SDL.exe

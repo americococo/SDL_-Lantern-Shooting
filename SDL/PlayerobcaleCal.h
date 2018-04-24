@@ -32,4 +32,10 @@ private:
 public:
 	void changeState(eStateType type);	
 
+
+private:
+	Sprite * _dot;
+
+public:
+	void SetPostion(float x, float y);
 };

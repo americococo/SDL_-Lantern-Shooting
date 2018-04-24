@@ -30,7 +30,4 @@ public:
 protected:
 	bool CheckOutscreen();
 
-
-public:
-	void SetColider(int size);
 };
