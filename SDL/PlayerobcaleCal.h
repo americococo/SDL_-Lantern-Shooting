@@ -32,7 +32,7 @@ private:
 public:
 	void changeState(eStateType type);	
 
-
+	void SetUpdate(int num);
 private:
 	Sprite * _dot;
 

@@ -41,6 +41,7 @@ private:
 public:
 	void play();
 
+	void SetAnitime(int deltaTime);
 
 public:
 	int GetSpriteRangeX();

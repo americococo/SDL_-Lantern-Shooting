@@ -67,7 +67,7 @@ Sprite::Sprite(const char * fileName,bool isloop)
 	 
 
 	 _frameDuration = 0;
-	 _aniSpeed = 1000/30;
+	 _aniSpeed = 1000/60;
 
 
 	 _isloop = isloop;
@@ -135,6 +135,10 @@ void Sprite::play()
 {
 	_frame = 0;
 	_isplay = true;
+}
+void Sprite::SetAnitime(int deltaTime)
+{
+	_aniSpeed = deltaTime;
 }
 int Sprite::GetSpriteRangeX()
 {

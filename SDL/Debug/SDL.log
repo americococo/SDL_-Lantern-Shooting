@@ -1,13 +1,12 @@
-﻿  PlayerobcaleCal.cpp
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(75): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(76): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(80): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(81): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(83): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(84): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(87): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(90): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(93): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(96): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-c:\users\a\documents\github\sdl_-lantern-shooting\sdl\playerobcalecal.cpp(156): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  SDL.vcxproj -> C:\Users\a\Documents\GitHub\SDL_-Lantern-Shooting\Debug\SDL.exe
+﻿  GameScene.cpp
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(37): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(38): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(40): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(47): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(48): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(50): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(56): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(58): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(64): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+d:\github\sdl_-lantern-shooting\sdl\gamescene.cpp(66): warning C4244: '인수': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SDL.vcxproj -> D:\GitHub\SDL_-Lantern-Shooting\Debug\SDL.exe

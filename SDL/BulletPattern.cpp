@@ -38,6 +38,7 @@ void BulletPattern::Update(int deltaTime)
 		int EnterBulletX = _object->GetPostionX();
 		int EnterBulletY = _object->GetPostionY();
 
+		bullet->SetOwner(_object);
 		bullet->EnterBulletPosition(EnterBulletX, EnterBulletY);
 		bullet->SetSpeed(-20);
 		((GameScene*)SceneManger::Getinstance()->GetScene())->GetBulletManger()->pushBulletList(bullet);

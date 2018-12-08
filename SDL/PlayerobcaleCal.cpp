@@ -54,11 +54,15 @@ void PlayerObcaleCal::Init(const char * name)
 
 	_dot = new Sprite("PlayerDotSprite.csv", true);
 	
-
 	changeState(eStateType::IDLE);
-
+	
 	_objectType = eObjectType::Player;
 } 
+void PlayerObcaleCal::SetUpdate(int num)
+{
+	ChangePattern(num);
+}
+
 void PlayerObcaleCal::changeState(eStateType type)
 {
 	if (_state != nullptr)
@@ -138,16 +142,16 @@ void PlayerObcaleCal::Update(int deltaTime)
 		}
 	}
 	
-	if (InputManager::GetInstance()->IsInputKey(SDLK_z))
-		_pattern->Update(deltaTime);
+	//if (InputManager::GetInstance()->IsInputKey(SDLK_z))
+	_pattern->Update(deltaTime);
 
 	if (InputManager::GetInstance()->IsInputKey(SDLK_x))
 	{
-		ChangePattern(1);
+		SetUpdate(1);
 	}
 	if (false == InputManager::GetInstance()->IsInputKey(SDLK_x))
 	{
-		ChangePattern(2);
+		SetUpdate(2);
 	}
 
 

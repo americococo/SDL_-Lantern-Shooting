@@ -34,11 +34,11 @@ void GameScene::Init()
 		GameObject * player = new PlayerObcaleCal();
 
 		player->Init("PlayerInfo.csv");
-		player->InitBulletParttern(new BulletPattern(1000*0.5), 1);
-		player->InitBulletParttern(new ChaseBulletPattern(1000*0.8),2);
+		player->InitBulletParttern(new BulletPattern(1000*0.1), 1);
+		player->InitBulletParttern(new ChaseBulletPattern(1000*0.5),2);
 
 		player->SetPostion(GameSystem::Getinstance()->GetWindowCenterX(), 750);
-
+		((PlayerObcaleCal*)player)->SetUpdate(1);
 		_objectManger->PushObjaceMap(player, L"Player");
 	}
 	{

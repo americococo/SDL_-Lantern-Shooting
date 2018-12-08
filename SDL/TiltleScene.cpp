@@ -5,10 +5,12 @@
 #include "Sprite.h"
 
 #include "InputManager.h"
-#include <SDL.h>
 TitleScene::TitleScene()
 {
 	_backGround = new Sprite("background.csv", true);
+
+	
+
 }
 
 TitleScene::~TitleScene()
@@ -17,6 +19,7 @@ TitleScene::~TitleScene()
 void TitleScene::Init()
 {
 	_backGround->SetPostion(GameSystem::Getinstance()->GetWindowW() / 2, GameSystem::Getinstance()->GetWindowH() / 2);
+	_backGround->SetAnitime(1500);//mean 1.5sec
 }
 void TitleScene::DeInit()
 {
